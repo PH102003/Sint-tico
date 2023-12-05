@@ -1,0 +1,177 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMENTARIOS
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> lista_declaracoes
+Rule 2     lista_declaracoes -> declaracao
+Rule 3     lista_declaracoes -> lista_declaracoes declaracao
+Rule 4     declaracao -> declaracao_variavel
+Rule 5     declaracao -> declaracao_funcao
+Rule 6     declaracao -> declaracao_estrutura
+Rule 7     declaracao -> comentario
+Rule 8     termo -> expressao
+Rule 9     logico -> expressao
+Rule 10    relacional -> expressao
+Rule 11    expressao -> termo
+Rule 12    expressao -> expressao OPERADORES termo
+Rule 13    expressao -> expressao logico termo
+Rule 14    expressao -> expressao relacional termo
+Rule 15    expressao -> SIMBOLO_ESPECIAL expressao SIMBOLO_ESPECIAL
+Rule 16    expressao -> ID PARENTESE_ESQ argumentos SIMBOLO_ESPECIAL
+Rule 17    declaracao_variavel -> PALAVRAS_RESERVADAS ID SIMBOLO_ESPECIAL
+Rule 18    declaracao_variavel -> PALAVRAS_RESERVADAS ID OPERADORES expressao SIMBOLO_ESPECIAL
+Rule 19    declaracao_estrutura -> STRUCT ID CHAVE_ESQ declaracao_variavel_lista CHAVE_DIR SIMBOLO_ESPECIAL
+Rule 20    declaracao_variavel_lista -> declaracao_variavel
+Rule 21    declaracao_variavel_lista -> declaracao_variavel_lista declaracao_variavel
+Rule 22    declaracao_funcao -> t ID SIMBOLO_ESPECIAL parametros SIMBOLO_ESPECIAL bloco
+Rule 23    parametros -> parametro
+Rule 24    parametros -> parametros SIMBOLO_ESPECIAL parametro
+Rule 25    parametro -> tipo ID
+Rule 26    parametro -> tipo ID SIMBOLO_ESPECIAL SIMBOLO_ESPECIAL
+Rule 27    parametro -> tipo pontos pontos ID
+Rule 28    comentario -> COMENTARIO_LINHA
+Rule 29    comentario -> COMENTARIO_BLOCO
+Rule 30    COMENTARIO_LINHA -> c TEXTO
+Rule 31    COMENTARIO_BLOCO -> b TEXTO b
+Rule 32    estrutura_controle -> estrutura_controle_if
+Rule 33    estrutura_controle -> estrutura_controle_while
+Rule 34    estrutura_controle -> estrutura_controle_for
+Rule 35    estrutura_controle -> estrutura_controle_switch
+Rule 36    estrutura_controle -> estrutura_controle_break
+Rule 37    estrutura_controle -> estrutura_controle_continue
+Rule 38    estrutura_controle -> estrutura_controle_return
+Rule 39    estrutura_controle -> IF PARENTESE_ESQ expressao PARENTESE_DIR bloco
+Rule 40    estrutura_controle -> IF PARENTESE_ESQ expressao PARENTESE_DIR bloco ELSE bloco
+Rule 41    estrutura_controle -> WHILE PARENTESE_ESQ expressao PARENTESE_DIR bloco
+Rule 42    estrutura_controle -> FOR PARENTESE_ESQ expressao PONTO_VIRGULA expressao PONTO_VIRGULA expressao PARENTESE_DIR bloco
+Rule 43    estrutura_controle -> SWITCH PARENTESE_ESQ expressao PARENTESE_DIR case_lista
+Rule 44    case_lista -> case_decl
+Rule 45    case_lista -> case_lista case_decl
+Rule 46    case_decl -> CASE expressao DOIS_PONTOS bloco
+Rule 47    case_decl -> DEFAULT DOIS_PONTOS bloco
+Rule 48    estrutura_controle -> BREAK SIMBOLO_ESPECIAL
+Rule 49    estrutura_controle -> CONTINUE SIMBOLO_ESPECIAL
+Rule 50    estrutura_controle -> RETURN expressao SIMBOLO_ESPECIAL
+Rule 51    estrutura_controle -> RETURN SIMBOLO_ESPECIAL
+Rule 52    primaria -> ID
+Rule 53    primaria -> NUM_INT
+Rule 54    primaria -> NUM_DEC
+Rule 55    primaria -> TEXTO
+Rule 56    primaria -> PARENTESE_ESQ expressao PARENTESE_DIR
+Rule 57    expressao_unaria -> expressao_postfix
+Rule 58    expressao_unaria -> MENOS_UNARIO expressao_unaria
+Rule 59    expressao_unaria -> INCREMENTO expressao_unaria
+Rule 60    expressao_unaria -> DECREMENTO expressao_unaria
+Rule 61    expressao_aritmetica -> expressao_multiplicativa
+Rule 62    expressao_aritmetica -> expressao_aritmetica PLUS expressao_multiplicativa
+Rule 63    expressao_aritmetica -> expressao_aritmetica MINUS expressao_multiplicativa
+Rule 64    expressao_multiplicativa -> expressao_unaria
+Rule 65    expressao_multiplicativa -> expressao_multiplicativa TIMES expressao_unaria
+Rule 66    expressao_multiplicativa -> expressao_multiplicativa DIVIDE expressao_unaria
+Rule 67    expressao_multiplicativa -> expressao_multiplicativa MODULO expressao_unaria
+Rule 68    expressao_logica -> expressao_relacional
+Rule 69    expressao_logica -> NOT expressao_logica
+Rule 70    expressao_logica -> expressao_logica AND expressao_logica
+Rule 71    expressao_logica -> expressao_logica OR expressao_logica
+Rule 72    expressao_relacional -> expressao_aritmetica
+Rule 73    expressao_relacional -> expressao_relacional MAIOR expressao_relacional
+Rule 74    expressao_relacional -> expressao_relacional MAIORIG expressao_relacional
+Rule 75    expressao_relacional -> expressao_relacional MENOR expressao_relacional
+Rule 76    expressao_relacional -> expressao_relacional MENORIG expressao_relacional
+Rule 77    expressao_relacional -> expressao_relacional DIF expressao_relacional
+Rule 78    expressao_relacional -> expressao_relacional IGUALIGUAL expressao_relacional
+
+Terminals, with rules where they appear
+
+COMENTARIOS          : 
+ID                   : 16 17 18 19 22 25 26 27 52
+NUM_DEC              : 54
+NUM_INT              : 53
+OPERADORES           : 12 18
+PALAVRAS_RESERVADAS  : 17 18
+SIMBOLO_ESPECIAL     : 15 15 16 17 18 19 22 22 24 26 26 48 49 50 51
+TEXTO                : 30 31 55
+error                : 
+
+Nonterminals, with rules where they appear
+
+AND                  : 70
+BREAK                : 48
+CASE                 : 46
+CHAVE_DIR            : 19
+CHAVE_ESQ            : 19
+COMENTARIO_BLOCO     : 29
+COMENTARIO_LINHA     : 28
+CONTINUE             : 49
+DECREMENTO           : 60
+DEFAULT              : 47
+DIF                  : 77
+DIVIDE               : 66
+DOIS_PONTOS          : 46 47
+ELSE                 : 40
+FOR                  : 42
+IF                   : 39 40
+IGUALIGUAL           : 78
+INCREMENTO           : 59
+MAIOR                : 73
+MAIORIG              : 74
+MENOR                : 75
+MENORIG              : 76
+MENOS_UNARIO         : 58
+MINUS                : 63
+MODULO               : 67
+NOT                  : 69
+OR                   : 71
+PARENTESE_DIR        : 39 40 41 42 43 56
+PARENTESE_ESQ        : 16 39 40 41 42 43 56
+PLUS                 : 62
+PONTO_VIRGULA        : 42 42
+RETURN               : 50 51
+STRUCT               : 19
+SWITCH               : 43
+TIMES                : 65
+WHILE                : 41
+argumentos           : 16
+b                    : 31 31
+bloco                : 22 39 40 40 41 42 46 47
+c                    : 30
+case_decl            : 44 45
+case_lista           : 43 45
+comentario           : 7
+declaracao           : 2 3
+declaracao_estrutura : 6
+declaracao_funcao    : 5
+declaracao_variavel  : 4 20 21
+declaracao_variavel_lista : 19 21
+estrutura_controle   : 
+estrutura_controle_break : 36
+estrutura_controle_continue : 37
+estrutura_controle_for : 34
+estrutura_controle_if : 32
+estrutura_controle_return : 38
+estrutura_controle_switch : 35
+estrutura_controle_while : 33
+expressao            : 8 9 10 12 13 14 15 18 39 40 41 42 42 42 43 46 50 56
+expressao_aritmetica : 62 63 72
+expressao_logica     : 69 70 70 71 71
+expressao_multiplicativa : 61 62 63 65 66 67
+expressao_postfix    : 57
+expressao_relacional : 68 73 73 74 74 75 75 76 76 77 77 78 78
+expressao_unaria     : 58 59 60 64 65 66 67
+lista_declaracoes    : 1 3
+logico               : 13
+parametro            : 23 24
+parametros           : 22 24
+pontos               : 27 27
+primaria             : 
+programa             : 0
+relacional           : 14
+t                    : 22
+termo                : 11 12 13 14
+tipo                 : 25 26 27
+
